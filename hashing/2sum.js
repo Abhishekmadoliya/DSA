@@ -21,25 +21,45 @@
 
 // ------------------------BETTER APPROACH---------------------
 
-function twosum(arr, target) {
-    arr.sort((a, b) => a - b); // Sort in ascending order
+// function twosum(arr, target) {
+//     arr.sort((a, b) => a - b); // Sort in ascending order
 
-    let st = 0;
-    let end = arr.length - 1;
+//     let st = 0;
+//     let end = arr.length - 1;
 
-    while (st <= end) {
-        let sum = arr[st] + arr[end];
+//     while (st <= end) {
+//         let sum = arr[st] + arr[end];
         
-        if (sum == target) {
-            return [st, end];  // Return both indices
-        } else if (sum < target) {
-            st++; // Increase the start pointer
+//         if (sum == target) {
+//             return [st, end];  // Return both indices
+//         } else if (sum < target) {
+//             st++; // Increase the start pointer
+//         } else {
+//             end--; // Decrease the end pointer
+//         }
+//     }
+    
+//     return false; // No solution found
+// }
+
+// console.log(twosum([2, 5, 3, 6, 4, 5,6,5], 7));  // Example usage
+
+
+function twosum(arr, target) {
+    let map = new Map();
+
+    for (let i = 0; i < arr.length; i++) {
+        let first = arr[i];
+        let second = target - first;
+
+        if (map.has(second)) {
+            return [map.get(second), i];  // Return the indices of the two numbers
         } else {
-            end--; // Decrease the end pointer
+            map.set(first, i);  // Store the index of the current number
         }
     }
-    
-    return false; // No solution found
+
+    return false;  // If no solution is found
 }
 
-console.log(twosum([2, 5, 3, 6, 4, 5,6,5], 7));  // Example usage
+console.log(twosum([2, 5, 3, 6, 4, 5, 6, 5], 7));  // Example usage
