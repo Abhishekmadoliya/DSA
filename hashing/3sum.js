@@ -107,3 +107,34 @@ function _3sum(array) {
   
   console.log(_3sum([1, -1, 2, 3, -4, 5]));
   
+
+
+//   what happened above
+
+// 1. **Sorting the Array**:
+//    - The array is sorted in ascending order using `array.sort((a, b) => a - b)`. This helps in avoiding duplicates and makes it easier to find triplets that sum to zero.
+
+// 2. **Iterating through the Array**:
+//    - A `for` loop iterates through the array up to `n - 2` (where `n` is the length of the array). This ensures that there are at least three elements to form a triplet.
+
+// 3. **Skipping Duplicates**:
+//    - Inside the loop, a check `if (i > 0 && array[i] === array[i - 1])` is used to skip duplicate elements to avoid redundant triplets.
+
+// 4. **Two-Pointer Technique**:
+//    - Two pointers, `j` and `k`, are initialized. `j` starts from `i + 1` and `k` starts from the end of the array (`n - 1`).
+//    - A `while` loop runs as long as `j < k`.
+
+// 5. **Calculating the Sum**:
+//    - The sum of the elements at indices `i`, `j`, and `k` is calculated.
+//    - If the sum is less than zero, the left pointer `j` is incremented to increase the sum.
+//    - If the sum is greater than zero, the right pointer `k` is decremented to decrease the sum.
+//    - If the sum is zero, the triplet is added to the result array `ans`.
+
+// 6. **Skipping Duplicates for Pointers**:
+//    - After finding a valid triplet, both pointers `j` and `k` are moved inward.
+//    - Additional `while` loops are used to skip duplicate elements for both `j` and `k`.
+
+// 7. **Returning the Result**:
+//    - Finally, the array `ans` containing all unique triplets that sum to zero is returned.
+
+// This combination of sorting, iteration, and the two-pointer technique ensures that the solution is efficient and avoids duplicate triplets.
