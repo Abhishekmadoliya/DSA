@@ -26,26 +26,30 @@
 // more optimal approach using hashing ----maps
 
 function _3sum(arr) {
-    let set = new Set([]);
+    let result= [];
+    
     let n = arr.length;
+    arr.sort((a, b) => a - b);
 
-    for (let i = 0; i < arr.length; i++) {
-        let tar = -arr[i];
+    for (let i = 0; i < n; i++) {
+        if (i > 0 && arr[i] === arr[i - 1]) continue;
+        let set = new Set([]);
 
-        for (let j = i+1; j < arr.length; j++) {
-            let third = tar-arr[j];
-            if(set.has(third)){
-                let triplet = [arr[i],arr[j],arr[third]];
-                triplet.sort();
-                set.add(triplet);
+        for (let j = i+1; j < n; j++) {
+            let target  = -(arr[i] + arr[j]);
+            if(set.has(target)){
+                result.push ( [arr[i],arr[j],target]);
+                // result.sort();
+                while (j + 1 < n && arr[j] === arr[j + 1]) j++;
+                set.add(result);
             }
             set.add(arr[j])
             
         }
         
     }
-    return set
+    return result
 }
 
 
-_3sum([1,-1,2,5,-4])
+console.log(_3sum([1, -1, 2, 5, -4])); // Example test
