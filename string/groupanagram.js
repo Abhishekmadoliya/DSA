@@ -1,0 +1,4 @@
+
+function g_anagram() {
+    
+}
