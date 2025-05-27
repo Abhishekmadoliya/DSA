@@ -138,3 +138,9 @@ function _3sum(array) {
 //    - Finally, the array `ans` containing all unique triplets that sum to zero is returned.
 
 // This combination of sorting, iteration, and the two-pointer technique ensures that the solution is efficient and avoids duplicate triplets.
+
+
+//problem link: https://leetcode.com/problems/3sum/description/
+// ploblem statement: 
+// Given an integer array nums, return all the triplets [nums[i], nums[j], nums[k]] 
+// such that i != j, i != k, and j != k, and nums[i] + nums[j] + nums[k] == 0.

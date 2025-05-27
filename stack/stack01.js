@@ -1,9 +1,13 @@
 //stack 
 
-    const Stack = require('./stack');
+    // const Stack = require('./stack');
 
-const myStack = new Stack();
+const myStack = []
 
 myStack.push(1);
 
 myStack.push(2);
+
+
+
+console.log( myStack);
